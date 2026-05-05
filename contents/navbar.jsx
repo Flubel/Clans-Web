@@ -3,6 +3,7 @@ import styles from '/styles/Home.module.css'
 import Link from 'next/link'
 import { ChevronDown, Database, FileBadge, Gamepad2Icon, Globe, Image, LetterText, LogOut, Menu, Scale, Scroll, ScrollIcon, ScrollTextIcon, ShoppingCart, UserRound, X } from 'lucide-react';
 import { useRouter } from 'next/router';
+import Errormn from './error';
 
 const Navbar = () => {
     const [userStatus, setUserStatus] = useState(false);
@@ -465,6 +466,9 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+            <Link href={'/desyncexploit'}>
+            <Errormn />
+            </Link>
         </>
     )
 }

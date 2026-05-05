@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import Link from 'next/link'
@@ -47,12 +47,16 @@ const footer = () => {
     };
     useEffect(() => {
         const mainflgfnc = async () => {
+            try {
+                const response = await axios.get('/api/get-ip');
 
-            const response = await axios.get('https://ipwhois.app/json/');
-            const data = response.data;
+                const data = response.data;
+                const flabgbcntnr = document.getElementById('webuserflgcntry');
 
-            const flabgbcntnr = document.getElementById('webuserflgcntry')
-            flabgbcntnr.style.backgroundImage = `url(${data.country_flag})`
+                flabgbcntnr.style.backgroundImage = `url(${data.country_flag})`
+            } catch (err) {
+                console.error("Error fetching from your proxy:", err);
+            }
         }
         mainflgfnc()
 
